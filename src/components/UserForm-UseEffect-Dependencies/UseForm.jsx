@@ -4,10 +4,12 @@ import './styles.css'
 const UseForm = () => {
 
 let statesIndia = ["punjab","delhi","jammu"];
-let statesUsa = ["new York","new Jersy","los Angles"];
-let cityIndia = ["mohali","pathankot","manali"];
-let cityUsa = ["los santos","vice city","sanandreas"];
-
+let statesUsa = ["new york","new jersey"];
+let citiesJammu = ["gandhinagar","lal chownk"];
+let citiesPunjab = ["mohali","pathankot"]
+let citiesDelhi = ["new delhi","lajpathnagar"]
+let citiesnewYork = ["los santos","vice city","sanandreas"]
+let citiesnewJersey = ["newark","hampshire"]
 
 const {register,handleSubmit,watch} = useForm();
 
@@ -56,14 +58,69 @@ console.log(selectedCurrentCity);
     {selectedCurrentState && (
                         <div className="city-select">
                             <select {...register('city')} name="city">
-                                <option value={false} name={false}>...select city</option>
-                                {
-                                   selectedCurrentState==='punjab' || selectedCurrentState==='delhi' || selectedCurrentState==='jammu' ? (cityIndia.map((key)=>(
-                                    <option name={key} value={key} >{key}</option>
-                                ))): (cityUsa.map((key)=>(
-                                    <option name={key} value={key} >{key}</option>
-                                )))
-                                }
+                               
+                                {(() => {
+
+switch (selectedCurrentState) {
+
+   case 'punjab':
+
+       return (
+
+        citiesPunjab.map((key)=>(
+            <option name={key} value={key} >{key}</option>
+            ))
+
+       )
+
+   case 'delhi':
+
+       return (
+
+        citiesDelhi.map((key)=>(
+            <option name={key} value={key} >{key}</option>
+            ))
+
+       )
+
+       case 'jammu':
+
+        return (
+ 
+            citiesJammu.map((key)=>(
+                <option name={key} value={key} >{key}</option>
+                ))
+ 
+        )
+        case 'new york':
+
+        return (
+ 
+            citiesnewYork.map((key)=>(
+                <option name={key} value={key} >{key}</option>
+                ))
+ 
+        )
+        case 'new jersey':
+
+        return (
+ 
+            citiesnewJersey.map((key)=>(
+                <option name={key} value={key} >{key}</option>
+                ))
+ 
+        )
+
+   default:
+
+       return (
+
+        <option value={false} name={false}>...select city</option>
+
+       )
+}
+})()}
+                  
                             </select>
                         </div>
                             
