@@ -34,74 +34,113 @@ const UseForm = () => {
         }
     ]
 
-    const getCountry = (data)=>{
-        let arr = []
-       data.map((value)=>(
-        arr.push(value.country)
-       ));
-       setCountryOptions(arr)
-    }
-  
+ 
 
-const [countryOptions, setCountryOptions] = useState([])
-const [stateOptions, setStateOptions] = useState([])
-const [cityOptions, setCityOptions] = useState([])
-
-const [country, setCountry] = useState()
-const [state, setState] = useState()
-const [city, setCity] = useState()
-
-const {register,handleSubmit,watch} = useForm();
-
-const selectedCurrentCountry = watch("country",false)
-const selectedCurrentState = watch("state",false)
-const selectedCurrentCity = watch("city",false)
+    const [countryOptions, setCountryOptions] = useState([])
+    const [stateOptions, setStateOptions] = useState([])
+    const [cityOptions, setCityOptions] = useState([])
 
 
 
-useEffect(()=>{
-    getCountry(list)
-setCountry(selectedCurrentCountry);
-}
-,[country])
+    const { register, handleSubmit, watch } = useForm();
 
-const onSubmit = (data) => {
-    alert(JSON.stringify(data));
-  };
+    const country = watch("country", false)
+    const state = watch("state", false)
+    const city = watch("city", false)
 
-  
-    return (
-        <div  className="form-container">
-           <form onSubmit={handleSubmit(onSubmit)}>
-               <div className="country-select">
-           <select  {...register('country')}  id="country" name="country" >
-           <option >...select country...</option>
-               {
-                   countryOptions.map((value)=>(
-                       <option value={value.country}>{value.country}</option>
-                   ))
-               
-               }
-           </select>
-           </div>
-           
-        {selectedCurrentCountry && (
-            <div className="state-select">
-                 <select {...register('state')} id="state" name="state">
-                 <option name={false} value={false}>...select state</option>
-                   
-                    
-                </select>
-            </div>
-        ) 
-    }
+
+
+ 
+    useEffect(() => {
+        
+        setCountryOptions(list.map(val => val.country));
+    }, [])
+
     
-  
-        <button type="submit">submit</button>
-        </form>
+    useEffect(() => {
+        
+        const countryFromList = list.find(val => val.country === country);
+        if(!countryFromList) {
+            return
+        }
+     
+        const states = countryFromList.states.map(val => val.name)
+        setStateOptions(states)
+
+    }, [country])
+
+    useEffect(() => {
+    
+        const stateFromList = list.find(val => val.states.name===state);
+        // if(!stateFromList) {
+        //     return
+        // }
        
+        // const cities = stateFromList.map(val => val.cities)
+        // setCityOptions(cities)
+        console.log(stateFromList);
+    }, [state])
+
+
+
+    const onSubmit = (data) => {
+        alert(JSON.stringify(data));
+    };
+
+
+    return (
+        <div className="form-container">
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <div className="country-select">
+                    <select  {...register('country')} id="country" name="country" >
+                        <option >...select country...</option>
+                        {
+                         
+                            countryOptions.map((value) => (
+                                <option value={value}>{value}</option>
+                            ))
+
+                        }
+                    </select>
+                </div>
+
+                {country && (
+                    <div className="state-select">
+                        <select {...register('state')} id="state" name="state">
+                            <option name={false} value={false}>...select state</option>
+                            {
+                            stateOptions.map((value) => (
+                                <option value={value}>{value}</option>
+                            ))
+
+                        }
+
+                        </select>
+                    </div>
+                )
+                }
+                {state && (
+                    <div className="city-select">
+                        <select {...register('city')} id="city" name="city">
+                            <option name={false} value={false}>...select city</option>
+                            {
+                            cityOptions.map((value) => (
+                                <option value={value}>{value}</option>
+                            ))
+
+                        }
+
+                        </select>
+                    </div>
+                )
+                }
+                
+
+
+                <button type="submit">submit</button>
+            </form>
+
         </div>
     )
 }
-
 export default UseForm
