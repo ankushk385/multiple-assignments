@@ -1,0 +1,14 @@
+{
+    "welcome_tag": "Bienvenue",
+    "welcome_msg":"Affichez n'importe quelle affectation en cliquant dessus dans le menu de navigation",
+    "app_title":"affectations multiples",
+    "apex_chart_headline":"en utilisant les données d'API en direct, affichez le nombre total de cas corona et récupérez les cas dans le monde sur un graphique d'apex",
+    "animate_page_headline":"Animer des objets à l'aide d'Animate.css et Hover.css",
+    "useform_page_headline":"sélectionnez votre pays et votre ville et la liste déroulante remplira l'élément en fonction de votre sélection",
+    "home_tag":"Domicile",
+    "apex_chart_tag":"Apex chart",
+    "useform_tag":"useForm/useeffect dépendances",
+    "animate_hover_tag":"Animate/Hover Css",
+    "chartjs_tag":"Chart js",
+    "change_language_tag":"Changer de langue"
+  }

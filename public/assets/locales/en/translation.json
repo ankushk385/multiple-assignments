@@ -1,0 +1,14 @@
+{
+    "welcome_tag": "Welcome",
+    "welcome_msg":"View any assignment by clicking on it in the nav Menu",
+    "app_title":"multiple assignments",
+    "apex_chart_headline":"using live api data display total corona cases and recover cases in the world on apex chart",
+    "animate_page_headline":"Animate objects using Animate.css and Hover.css",
+    "useform_page_headline":"select your country state and city and dropdown will populate the item according to your",
+    "home_tag":"Home",
+    "apex_chart_tag":"Apex chart",
+    "useform_tag":"useForm/useeffect dependencies",
+    "animate_hover_tag":"Animate/Hover Css",
+    "chartjs_tag":"CHart js",
+    "change_language_tag":"Change Language"
+  }

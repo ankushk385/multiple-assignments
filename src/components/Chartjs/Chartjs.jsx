@@ -3,6 +3,7 @@ import {Bar} from 'react-chartjs-2'
 import {useState,useEffect} from 'react';
 import json from './MOCK_DATA.json'
 
+
 const get50 = (data)=>{
     return data.slice(0,100);
     

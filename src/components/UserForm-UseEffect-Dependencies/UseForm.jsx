@@ -1,7 +1,10 @@
 import React,{useEffect,useState} from 'react'
 import {useForm} from 'react-hook-form';
+import { useTranslation } from "react-i18next";
 import './styles.css'
 const UseForm = () => {
+
+    const {t} = useTranslation();
 
     const list = [
         {
@@ -90,6 +93,7 @@ const UseForm = () => {
 
     return (
         <div className="form-container">
+            <h2>{t('useform_page_headline')}</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="country-select">
                     <select  {...register('country')} id="country" name="country" >

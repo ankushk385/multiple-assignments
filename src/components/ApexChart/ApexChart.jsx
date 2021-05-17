@@ -2,8 +2,9 @@ import React,{useState,useEffect} from 'react'
 // import { GetData} from '../../common/util';
 import ReactApexChart from 'react-apexcharts'
 import Axios from 'axios';
-
+import { useTranslation } from "react-i18next";
 const ApexChart = () => {
+  const {t} = useTranslation();
   const [data, setData] = useState();
   const [dates, setDates] = useState([])
   const [cases, setCases] = useState([])
@@ -60,7 +61,7 @@ const ApexChart = () => {
     };
   return (
       <div className="chart-container">
-      <h2>using live api data display total corona cases and recover cases in the world on apex chart </h2>
+      <h2>{t('apex_chart_headline')}</h2>
            <ReactApexChart options={options} series={series} type="area" height={350} />
            <button onClick={getValues}>click</button>
 </div>

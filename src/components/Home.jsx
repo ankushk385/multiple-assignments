@@ -1,10 +1,14 @@
 import React from 'react'
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+
+    const {t} = useTranslation();
+
     return (
         <div className="container">
-            <h2>Welcome</h2>
-                  <h5>View any assignment by clicking on it in the nav Menu</h5>
+            <h2>{t('welcome_tag')}</h2>
+                  <h5>{t('welcome_msg')}</h5>
                     </div>
     )
 }
