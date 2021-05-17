@@ -70,15 +70,15 @@ const UseForm = () => {
     }, [country])
 
     useEffect(() => {
-    
-        const stateFromList = list.find(val => val.states.name===state);
-        // if(!stateFromList) {
-        //     return
-        // }
-       
-        // const cities = stateFromList.map(val => val.cities)
-        // setCityOptions(cities)
-        console.log(stateFromList);
+        list.forEach(val => {
+           
+            const states = val.states;
+            const targetState = states.find(stateVal => stateVal.name === state);
+            if (targetState) {
+                
+                setCityOptions(targetState.cities)
+            }
+        })
     }, [state])
 
 
